@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js的缺点</title>
+
+<style type="text/css">
+	div{
+		height: 200px;
+		margin-bottom: 30px;
+		background-color: #4ceaea;
+		display: none;
+	}
+</style>
+
+<script type="text/javascript">
+//等待页面加载完成后才执行
+	window.onload = function () {
+		
+/* 缺点：1.需要遍历，可能还需要嵌套,编写代码麻烦
+		2.找对象麻烦，方法少，还长
+		3.会有兼容性问题 
+		4.实现简单的动画效果麻烦	animate;
+		5.js注册事件会被覆盖，可使用addEventListener(可能会有兼容性问题)*/
+	
+		var btn1 = document.getElementById("btn1");
+		var btn2 = document.getElementById("btn2");
+		var btn3 = document.getElementById("btn3");
+		var btn4 = document.getElementById("btn4");
+		var divs = document.getElementsByTagName("div");
+		
+		btn1.onclick = function () {
+			for (var i = 0; i < divs.length; i++) {
+				divs[i].style.display = "block";
+			}
+		}
+		btn2.onclick = function () {
+			for (var i = 0; i < divs.length; i++) {
+				//低版本火狐浏览器不支持innerText，支持textContent
+				divs[i].innerText = "这是一个色块儿";
+			}
+		}
+		btn3.onclick = function () {
+			for (var i = 0; i < divs.length; i++) {
+				divs[i].style.display = "none";
+			}
+		}
+		btn4.onclick = function () {
+			for (var i = 0; i < divs.length; i++) {
+				divs[i].innerText = "";
+			}
+		}
+	}
+
+</script>
+</head>
+<body>
+
+	<input type = "button" value = "显示块儿" id = "btn1">
+	<input type = "button" value = "显示内容" id = "btn2">
+	<input type = "button" value = "隐藏块儿" id = "btn3">
+	<input type = "button" value = "隐藏内容" id = "btn4">
+	<div></div>
+	<div></div>
+	<div></div>
+	
+</body>
+</html>

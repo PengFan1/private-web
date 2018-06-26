@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" ">
+<title>Monster Game</title>
+
+<style>
+/* 全局 */
+body {
+	margin: 0;
+	padding: 0;
+}
+
+
+
+.block_1 {
+	width: 100%;
+	margin-top: 20%;
+}
+.monster {
+	width: 70%;
+	margin-left:auto;
+	margin-right:auto;
+	display: block;
+	
+}
+.block_2 {
+
+	overflow: hidden;
+	display: table;
+	margin-top: 20%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.btn {
+	width: 40px;
+	margin: 0 10px;
+	float: left;
+}
+
+</style>
+
+</head>
+<body>
+
+	<div class = "block_1">
+		<img id = "monster" class = "monster" src="./img/game/常.png">
+	</div>
+	<div class = "block_2">
+		<img id = "btn_1" class = "btn" src="./img/game/未吃饭.png">
+		<img id = "btn_2" class = "btn" src="./img/game/未干活.png">
+		<img id = "btn_3" class = "btn" src="./img/game/未打.png">
+	</div>
+	
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+	<script type="text/javascript">
+		$("#btn_1").click(function() {
+			clear();
+			$("#monster").attr("src","./img/game/吃.png");
+			$(this).attr("src","./img/game/吃饭.png");
+		});
+		
+		$("#btn_2").click(function() {
+			clear();
+			$("#monster").attr("src","./img/game/汗.png");
+			$(this).attr("src","./img/game/干活.png");
+		});
+		
+		$("#btn_3").click(function() {
+			clear();
+			$("#monster").attr("src","./img/game/哭.png");
+			$(this).attr("src","./img/game/打它.png");
+		});
+		$("#monster").click(function() {
+			clear();
+			$(this).attr("src","./img/game/笑1.png");
+		});
+		
+		function clear() {
+			$("#btn_1").attr("src","./img/game/未吃饭.png");
+			$("#btn_2").attr("src","./img/game/未干活.png");
+			$("#btn_3").attr("src","./img/game/未打.png"); 
+		}
+
+//change
+		function change() {
+			$("#monster").mouseover(function(){
+//打印日志		console.log("stop");
+		    	stop();
+		    });
+			$("#monster").mouseout(function(){
+				console.log("start");
+		    	start();
+		    });
+
+			start();
+		}
+//startChange			
+		var btn = true;
+		
+		function startChang() {
+
+			if(btn) {
+				$("#monster").attr("src","./img/game/呆.png");
+				clear();9
+			} else {
+				$("#monster").attr("src","./img/game/常.png");
+				clear();
+			}
+			btn = !btn;
+		}
+//start
+		function start() {
+			time = setInterval("startChang()",3000);
+		}
+//stop
+		function stop() {
+			clearInterval(time);
+		}
+		
+		change();
+	</script>
+
+</body>
+</html>

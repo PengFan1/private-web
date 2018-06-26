@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuer初体验</title>
+
+<style type="text/css">
+	div{
+		height: 200px;
+		margin-bottom: 30px;
+		background-color: #4ceaea;
+		display: none;
+	}
+</style>
+
+<!-- 1.引入jQuery文件 -->
+<script type="text/javascript" src = "./js/jquery-3.3.1.min.js"></script>	
+<script type="text/javascript">
+	/* 1.JQuery优点总结：
+		a.查找元素方便快捷
+		b.隐式迭代(偷偷的遍历)，不需要手写写for循环
+		c.完全没有兼容性的问题
+		d.实现动画效果简单快捷，多种多样 */
+//	 2.入口函数
+	$(document).ready(function () {
+		/* console.log("哈哈"); */
+		$("#btn1").click(function () {
+			/* alert("哈哈哈"); */
+//			$("div").show(1000);		
+//			$("div").slideDown(1000);
+			$("div").fadeIn(1000);
+		});
+		$("#btn1").click(function () {
+			/* alert("大哥"); */
+		});
+		$("#btn2").click(function () {
+			$("div").text("这里是内容");
+		});
+		$("#btn3").click(function () {
+			$("div").fadeOut(1000);
+		});
+		$("#btn4").click(function () {
+			$("div").text("");
+		});
+	});
+</script>
+</head>
+<body>
+
+	<input type = "button" value = "显示块儿" id = "btn1">
+	<input type = "button" value = "显示内容" id = "btn2">
+	<input type = "button" value = "隐藏块儿" id = "btn3">
+	<input type = "button" value = "隐藏内容" id = "btn4">
+	<div></div>
+	<div></div>
+	<div></div>
+	
+</body>
+</html>

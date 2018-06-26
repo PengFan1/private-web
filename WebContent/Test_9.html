@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery筛选选择器(方法)——案例：下拉菜单</title>
+<style type="text/css">
+
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	ul{
+		list-style: none;
+	}
+	a{
+		color:#4e4e4e;
+	}
+	.main{
+		width: 300px;
+		height: 50px;
+		margin: 100px auto;
+		border-radius: 4px;
+		border: 1px solid #47bfbf4d;
+	}
+	.main li{
+		
+	}
+	.main > ul > li{
+		float:left;
+		position: relative;
+	}
+	.main a{
+		display: block;
+		
+		width:100px;
+		height: 50px;
+		line-height:50px;
+		
+		text-align:center;
+		text-decoration: none;
+		
+	}
+	.main li ul{
+		position: absolute;
+		top: 50px;
+		border: 1px solid #47bfbf4d;
+		border-radius: 4px;
+	}
+	
+</style>
+
+
+</head>
+<body>
+	
+	<script type="text/javascript" src = "./js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+	
+		$(function () {
+			
+			var $li = $(".main > ul > li");
+			
+			//mouseenter:鼠标指针穿过被选元素，才会触发事件；
+			//mouseover:鼠标指针穿过被选元素或其子元素，都会触发指定事件，多次执行会降低效率；
+			$li.mouseenter(function () {
+				$(this).children("a").css("color","#47bfbf4d");
+				$(this).children("ul").show();
+			});
+			
+			$("li li").mouseenter(function () {
+				$(this).css("backgroundColor","#c6c6c666");
+				$(this).children("a").css("color","#47bfbf4d");
+			});
+			
+			//mouseleave:鼠标指针离开被选元素，才会触发事件；
+			//mouseout:鼠标指针离开被选元素或其子元素，都会触发指定事件，多次执行会降低效率；
+			$li.mouseleave(function () {
+				$(this).children("a").css("color","#4e4e4e");
+				$(this).children("ul").hide();
+			});
+			$("li li").mouseleave(function () {
+				$(this).css("backgroundColor","#fff");
+				$(this).children("a").css("color","#4e4e4e");
+			});
+			
+		});
+	
+	</script>
+	
+	<div class = "main">
+		<ul>
+			<li>
+				<a href = "#">one</a>
+				<ul style = "display:none">
+					<li><a href = "#">111</a></li>
+					<li><a href = "#">222</a></li>
+					<li><a href = "#">333</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href = "#">two</a>
+				<ul style = "display:none">
+					<li><a href = "#">111</a></li>
+					<li><a href = "#">222</a></li>
+					<li><a href = "#">333</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href = "#">three</a>
+				<ul style = "display:none">
+					<li><a href = "#">111</a></li>
+					<li><a href = "#">222</a></li>
+					<li><a href = "#">333</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

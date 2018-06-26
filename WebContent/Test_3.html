@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery的入口函数</title>
+</head>
+<body>
+
+	<img alt="" src="http://static.event.mihoyo.com/new_mihoyo_homepage/images/download/cg/origin/20180524.png">
+	<img alt="" src="http://static.event.mihoyo.com/new_mihoyo_homepage/images/download/cg/origin/20180428.png">
+	<img alt="" src="http://static.event.mihoyo.com/new_mihoyo_homepage/images/download/cg/origin/20180428-2.png">
+	<img alt="" src="http://static.event.mihoyo.com/new_mihoyo_homepage/images/download/cg/origin/20180417.png">
+	<img alt="" src="http://static.event.mihoyo.com/new_mihoyo_homepage/images/download/cg/origin/20180413.png">
+
+<!-- 1.引入jQuery文件 -->
+	<script type="text/javascript" src = "./js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+	
+		//js入口函数
+		window.onload = function () {
+			console.log("js入口函数的写法");
+		};
+	
+		//jQuery入口函数
+		$(document).ready(function () {
+			console.log("jQuery入口函数的第一种写法");
+		});
+		$(function () {
+			console.log("jQuery入口函数的第二种写法");
+		});
+	
+		/* js入口函数比jQuery入口函数执行的慢一些
+		jQuery入口函数会等待页面组件加载完成，但不会等待图片的加载
+		js入口函数会等待页面的内容加载完成，会等待图片的加载 */
+		
+	</script>
+
+</body>
+</html>

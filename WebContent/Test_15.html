@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>属性操作-画廊相册案例</title>
+
+<style type="text/css">
+
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	ul{
+		list-style: none;
+		width: 1214px;
+	}
+	body{
+		margin: 5% 0;
+		background: #fff;
+	}
+	img{
+		display: block;
+	}
+	li{
+		float: left;
+		margin-left: 24px;
+	}
+	div{
+		overflow: hidden;
+	}
+	
+	.main{
+		margin: 0 5%;
+	}
+	.gallery,.canvas{
+		border: 3px solid #c0deee;
+		border-radius: 7px;
+	}
+	.canvas{
+		margin-top: 5%;
+	}
+	.title{
+		margin: 2%;
+		font-size: 32px;
+		line-height: 32px;
+		color: #40b0ea;
+		display: block;
+		text-shadow: 2px 2px 2px rgba(64,176,234,.5);
+	}
+	.canvas .title{
+		text-align: center;
+	}
+	.content{
+		margin: 3% auto;
+		height: 122px;
+	}
+	.gallery img{
+		border: 2px solid #4db0e6;
+		border-radius: 7px;
+	}
+	.canvas img{
+		margin: 3% auto;
+		width: 1000px;
+		border: 2px solid #4db0e6;
+		border-radius: 7px;
+	}
+
+</style>
+
+</head>
+<body>
+	
+	<div class = "main">
+		<div class = "gallery">
+			<span class = "title">壁纸CG</span>
+			<ul class = "content">
+				<li><a href = "#"><img alt="" src="./img/Test15/20180524.png" title = "为你写诗"></a></li>
+				<li><a href = "#"><img alt="" src="./img/Test15/20180428.png" title = "残阳约定"></a></li>
+				<li><a href = "#"><img alt="" src="./img/Test15/20180417.png" title = "沉眠之夜"></a></li>
+				<li><a href = "#"><img alt="" src="./img/Test15/20180413.png" title = "甜蜜之吻"></a></li>
+				<li><a href = "#"><img alt="" src="./img/Test15/20180328.png" title = "忆梦长廊"></a></li>
+			</ul>
+		</div>
+		<div class = "canvas">
+			<span class = "title">为你写诗</span>
+			<img alt="" src="./img/Test15/20180524_bg.png" title = "为你写诗">
+			<!-- <img alt="" src="./img/Test15/20180428_bg.png" title = "残阳约定">
+			<img alt="" src="./img/Test15/20180417_bg.png" title = "沉眠之夜">
+			<img alt="" src="./img/Test15/20180413_bg.png" title = "甜蜜之吻">
+			<img alt="" src="./img/Test15/20180328_bg.png" title = "忆梦长廊"> -->
+		</div>
+	</div>
+	
+	<script type="text/javascript" src = "./js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+	
+		$(function () {
+			
+//			$(".canvas img").eq(0).siblings().css("display","none");
+//			$(".canvas img").eq(0).css("display","block");
+			
+			var title,src,index;
+			
+			$("li").mouseenter(function () {
+				
+				//获取所选图片的标题
+				title = $(this).find("img").attr("title");
+				//获取所选图片的地址
+				src = $(this).find("img").attr("src");
+				src = src.substring(0,(src.length-4))+"_bg.png";
+				//获取所选图片的索引
+//				index = $(this).index();
+				console.log(src);
+				//改变所展示图片上的标题
+				$(".canvas span").text(title);
+				//更改所展示的图片
+				$(".canvas img").attr({src:src,title:title});
+//				$(".canvas img").eq(index).css("display","block").siblings("img").css("display","none");;
+				
+				return false;
+				
+			});
+			
+		});
+	
+	</script>
+	
+</body>
+</html>

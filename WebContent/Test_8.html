@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery过滤选择器</title>
+<style type="text/css">
+	
+	div{
+		height: 200px;
+		margin-bottom: 30px;
+		background-color: hotpink;
+	}
+</style>
+</head>
+<body>
+	
+	<script type="text/javascript" src = "./js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+	
+		$(function () {
+			
+			//去除列表项标记
+			$("li").css("listStyle","none");
+			//选择下标为偶数的li
+			$("li:even").css("backgroundColor","pink");
+			//选择下标为奇数的li
+			$("li:odd").css("backgroundColor","cyan");
+			//选择第一个li
+			$("li:first").css("backgroundColor","#fff");
+			//选择最后一个li
+			$("li:last").css("backgroundColor","#000");
+			$("li:last").css("color","#fff");
+			$("li:last").css("fontSize","32px");
+			//选择任意一个li
+			$("li:eq(3)").text("soulmate");
+			//选择任意一个li
+			$("li:gt(3)").css("fontWeight","lighter");
+			//选择任意一个li
+			$("li:lt(3)").css("fontWeight","bold");
+			
+		});
+	
+	</script>
+	
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+	</ul>
+	
+	<div class = "pink"></div>
+	<div class = "hotpink"></div>
+	<div class = "hotpink"></div>
+</body>
+</html>

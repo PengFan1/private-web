@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>prop方法与表格全选案例</title>
+
+<style type="text/css">
+
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	ul {
+		list-style: none;
+	}
+	div {
+		margin: 30px;
+	}
+
+</style>
+
+</head>
+<body>
+	
+	<div class = "content">
+		<ul>
+			<li>1. <input type = "checkbox"></li>
+			<li>2. <input type = "checkbox"></li>
+			<li>3. <input type = "checkbox"></li>
+			<li>4. <input type = "checkbox"></li>
+			<li>5. <input type = "checkbox"></li>
+			<li>6. <input type = "checkbox"></li>
+			<li>7. <input type = "checkbox"></li>
+		</ul>
+	</div>
+	<div class = operation>
+		<input type = "button" value = "全选">
+		<input type = "button" value = "反选">
+	</div>
+
+	<script type="text/javascript" src = "./js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+	
+		$(function () {
+			
+			//全选
+			//注意：在获取或改变DOM的checked、selected、disabled属性是应使用prop()方法，用法与attr()方法一致；
+			$(".operation input").eq(0).click(function () {
+				$(".content input").prop("checked",true);
+			});
+			
+			//反选
+			$(".operation input").eq(1).click(function () {
+				
+				//each(function):规定为每个匹配元素规定运行的函数。遍历相当于for循环
+				$(".content input").each(function () {
+					console.log($(this).prop("checked"));
+				});
+				
+				$(".content input").each(function () {
+					if($(this).prop("checked")){
+						$(this).prop("checked",false);
+					} else{
+						$(this).prop("checked",true);
+					}
+				});
+			});
+			
+		});
+	
+	</script>
+
+</body>
+</html>

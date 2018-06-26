@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery选择器</title>
+<style type="text/css">
+	
+	div{
+		height: 200px;
+		margin-bottom: 30px;
+		background-color: hotpink;
+	}
+</style>
+</head>
+<body>
+	
+	<script type="text/javascript" src = "./js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+	
+		$(function () {
+			
+			//id选择器
+			$("#three").text("这里是第三行");
+			
+			//class选择器
+			$(".pink").css("background-color","pink");
+			
+			//标签选择器
+			$("div").text("这是一个div块儿");
+			
+			//并集选择器：使用逗号分隔，只要符合条件之一就可
+			$("#three,.pink").css("background-color","#4ceaea");
+			
+			//交集选择器：获取class为pink的li元素
+			$("li.pink").text("Soulmate");
+			
+			//子代选择器：
+			
+			//后代选择器：
+			
+		});
+	
+	</script>
+	
+	<ul>
+		<li>1</li>
+		<li class = "hotpink">2</li>
+		<li id = "three">3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li class = "pink">7</li>
+	</ul>
+	
+	<div class = "pink"></div>
+	<div class = "hotpink"></div>
+	<div class = "hotpink"></div>
+</body>
+</html>

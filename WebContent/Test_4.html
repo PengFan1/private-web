@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dom对象(js对象)与jQuery对象</title>
+</head>
+<body>
+
+	<ul>
+		<li id = "hat">帽子</li>
+		<li id = "cloth">衣服</li>
+		<li>裤子</li>
+		<li id = "shoes">鞋子</li>
+	</ul>
+
+	<script type="text/javascript" src = "./js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+	
+		$(function () {
+			
+//			1.DOM对象（js对象）：使用js的方式获取到的对象就是DOM对象（js对象）
+
+			var hat = document.getElementById("hat");
+			hat.style.backgroundColor = "blue";
+			
+//			2.什么是jQuery对象：使用jQuery方式获取到的对象就是jQuery对象
+
+			var $cloth = $("#cloth");
+			$cloth.text("我换了一件衣服");
+		});
+			
+//			3.jQuery对象与js对象的区别
+//			js对象不能调用jQuery对象的方法
+//			jQuery对象也不能调用js对象的方法
+
+			var $li = $("li");
+			$li[2].setAttribute("name","trousers");
+
+//			4.jQuery对象与js对象的联系（jQuery对象其实就是js对象的一个集合，伪数组，里面存放了一大堆js对象）
+
+			console.log($li);
+			
+//			5.DOM对象转换为jQuery对象的方法：$()
+			var shoes = document.getElementById("shoes");
+			$(shoes).text("我喜欢白鞋子");
+			
+//			6.jQuery对象转换为DOM对象的方法(取出来)：$li[0];		$li.get(0);
+			$li[2].style.backgroundColor = "#4ceaea";
+			$li.get(1).style.backgroundColor = "#0007";
+
+	</script>
+</body>
+</html>

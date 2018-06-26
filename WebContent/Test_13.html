@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css操作</title>
+
+<style type="text/css">
+	
+	ul{
+		list-style: none;
+	}
+	
+</style>
+
+</head>
+<body>
+
+	<ul>
+		<li>圣域大天使</li>
+		<li>终极爆天甲</li>
+		<li>守护者</li>
+		<li>光明骑士</li>
+		<li>圣白独角兽</li>
+	</ul>
+
+	<script type="text/javascript" src = "./js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+		
+		$(function () {
+			
+			//1.修改单个样式
+			//css(name,value);
+			//name:样式名	value:样式值
+			
+//			$("li").css("backgroundColor","cyan").css("color","white").css("fontWeight","bolder");
+			
+			//2.修改多个样式
+			//css(obj)
+			
+			$("li").css({backgroundColor:"cyan",color:"white",fontWeight:"lighter"});
+			
+			//3.获取样式
+			//css(name)
+			//name:想要获取的样式
+			
+			console.log($("li").css("backgroundColor")+","+$("li").css("fontWeight"));
+			
+			//隐式迭代：
+			//		1.设置操作时，会给jq内部所有的对象都设置上相同的值。
+			//		2.获取的时候，只会返回第一个元素对应的值。
+		});
+	
+	</script>
+
+</body>
+</html>

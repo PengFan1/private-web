@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>京东轮播图</title>
+
+<style type="text/css">
+
+	* {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	ul {
+		
+	}
+	li {
+		
+	}
+	a {
+		height: 400px;
+		display: block;
+	}
+	img {
+		width: 800px;
+		height: 400px;
+	}
+	
+	.main {
+		width: 800px;
+		height: 400px;
+		margin: 100px auto;
+		position: relative;
+	}
+	.main li {
+		position: absolute;
+		display: none;
+	}
+	.main li:first-child {
+		display: block;
+	}
+	.arrow {
+		display: block;
+	}
+	.main:hover .arrow {
+		display: block;
+	}
+	.arrow-left,.arrow-right {
+		width: 35px;
+		height: 70px;
+		
+		top: 50%;
+		margin-top: -35px;
+		position: absolute;
+		line-height: 70px;
+		
+		font-weight: 700;
+		font-size: 32px;
+		text-align: center;
+		cursor: pointer;		/* 规定光标形状 */
+		border-radius: 2px;
+		
+		color: #fff;
+		background-color: rgb(0,0,0,0.1);
+		
+		transition: all 0.3s;
+	}
+	.arrow-left {
+		left: 0;
+	}
+	.arrow-right {
+		right: 0;
+	}
+	.arrow-left:hover , .arrow-right:hover {
+		background-color: rgb(0,0,0,0.5);
+	}
+
+</style>
+
+</head>
+<body>
+
+	<div class = "main">
+		<ul>
+			<li><a href = "#"><img alt="" src="./img/Test18/bg_1.jpg"></a></li>
+			<li><a href = "#"><img alt="" src="./img/Test18/bg_2.jpg"></a></li>
+			<li><a href = "#"><img alt="" src="./img/Test18/bg_3.jpg"></a></li>
+			<li><a href = "#"><img alt="" src="./img/Test18/bg_4.jpg"></a></li>
+			<li><a href = "#"><img alt="" src="./img/Test18/bg_5.jpg"></a></li>
+			<li><a href = "#"><img alt="" src="./img/Test18/bg_6.jpg"></a></li>
+			<li><a href = "#"><img alt="" src="./img/Test18/bg_7.jpg"></a></li>
+		</ul>
+		<div class = "arrow">
+			<span class = "arrow-left">〈 </span>
+			<span class = "arrow-right"> 〉</span>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src = "./js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+	
+		$(function () {
+			
+			var index = 0;
+			
+			//下一张
+			$("span").eq(1).click(function () {
+				if (++index==7) {
+					index = 0;
+				};
+				$("li").eq(index).fadeIn().siblings().fadeOut();
+					//console.log(index);
+				});
+			
+			//上一张
+			$("span").eq(0).click(function () {
+				if (--index==-1) {
+					index = 6;
+				};
+				$("li").eq(index).fadeIn().siblings().fadeOut();
+					//console.log(index);
+			});
+			
+		});
+	
+	</script>
+
+</body>
+</html>

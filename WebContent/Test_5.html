@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>隔行变色</title>
+</head>
+<body>
+
+	<ul>
+		<li>第1个li的</li>
+		<li>第2个li的</li>
+		<li>第3个li的</li>
+		<li>第4个li的</li>
+		<li>第5个li的</li>
+		<li>第6个li的</li>
+		<li>第7个li的</li>
+		<li>第8个li的</li>
+		<li>第9个li的</li>
+		<li>第10个li的</li>
+	</ul>
+	
+	<script type="text/javascript" src = "./js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			
+			/* var lis = document.getElementsByTagName("li"); */	//获取到的对象为js对象
+			var lis = $("li");										//获取到的对象为jQuery对象
+			
+			for (var i = 0; i < lis.length; i++) {
+				
+				if ((i&1)==0) {
+					lis[i].innerText = "这是第"+(i+1)+"行,是奇数行";
+					lis[i].style.backgroundColor = "pink";
+				}else {
+					lis[i].innerText = "这是第"+(i+1)+"行,是偶数行";
+					lis[i].style.backgroundColor = "hotpink";
+				}
+			}
+		});
+	</script>
+</body>
+</html>

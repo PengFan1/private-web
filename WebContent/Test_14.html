@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>class操作</title>
+
+<style type="text/css">
+	
+	ul{
+		list-style: none;
+	}
+	
+	.basic{
+		background-color: cyan;
+		color: white;
+		font-size: 32px;
+	}
+	.bigger{
+		font-size: 43px;
+	}
+	
+</style>
+
+</head>
+<body>
+	
+	<input type = "button" value = "添加basic类" id = "btn">
+	<input type = "button" value = "添加bigger类" id = "btn">
+	<input type = "button" value = "移除basic类" id = "btn">
+	<input type = "button" value = "移除bigger类" id = "btn">
+	<input type = "button" value = "判断basic类" id = "btn">
+	<input type = "button" value = "判断bigger类" id = "btn">
+	<input type = "button" value = "切换basic类" id = "btn">
+	<input type = "button" value = "切换bigger类" id = "btn">
+	
+	
+	<div id = "box" class = "aa bb cc dd">
+		<ul>
+			<li>one</li>
+			<li>two</li>
+			<li>three</li>
+			<li>four</li>
+			<li class = "lis">判断结果：</li>
+		</ul>
+	</div>
+	
+	
+	<script type="text/javascript" src= "./js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+	
+		$(function () {
+			
+			//添加一个类:addClass
+			$("input").eq(0).click(function () {
+				$("li").addClass("basic");
+			});
+			$("input").eq(1).click(function () {
+				$("li").addClass("bigger");
+			});
+			
+			//移除一个类:removeClass
+			$("input").eq(2).click(function () {
+				$("li").removeClass("basic");
+			});
+			$("input").eq(3).click(function () {
+				$("li").removeClass("bigger");
+			});
+			
+			//判断类:hasClass
+			$("input").eq(4).click(function () {
+				$(".lis").text("判断结果："+$("li").hasClass("basic"));
+			});
+			$("input").eq(5).click(function () {
+				$(".lis").text("判断结果："+$("li").hasClass("bigger"));
+			});
+			
+			//切换类:toggleClass
+			/* $("input").eq(6).click(function () {
+				if($("li").hasClass("basic")||$("li").hasClass("bigger")){
+					$("li").removeClass("basic").removeClass("bigger");
+				} else{
+					$("li").addClass("basic").addClass("bigger");
+				};
+			}); */
+			$("input").eq(6).click(function () {
+				$("li").toggleClass("basic");
+			});
+			$("input").eq(7).click(function () {
+				$("li").toggleClass("bigger");
+			});
+			
+		});
+	
+	</script>
+	
+</body>
+</html>

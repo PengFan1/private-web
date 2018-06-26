@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery三种基本动画</title>
+
+<style type="text/css">
+
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	
+	.main{
+		width:700px;
+		height:500px;
+		
+		margin: 50px auto;
+		
+		border: 1px solid #d7d7d7;
+	}
+	.controler{
+		width: 700px;
+		margin: 50px auto;
+		text-align: center;
+	}
+	.controler input{
+		margin: 0 15px;
+	}
+	.content{
+		width: 300px;
+		height: 300px;
+		
+		margin: 0 auto;
+		
+		background: #9dd7d7;
+		border: 1px solid #d7d7d7;
+		box-shadow: 5px 5px 10px #d7d7d7;
+	}
+
+</style>
+
+</head>
+<body>
+
+	<div class = "main">
+		<div class = "controler">
+			<input type = "button" value = "隐藏展示">
+			<input type = "button" value = "toggle">
+			<input type = "button" value = "淡出淡入">
+			<input type = "button" value = "fadeToggle">
+			<input type = "button" value = "滑出滑入">
+			<input type = "button" value = "slideToggle">
+		</div>
+		<div class = "content"></div>
+	</div>
+	
+	<script type="text/javascript" src = "./js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+	
+		$(function () {
+			
+			//方法格式：show([speed],[callback]);		speed可以为数值也可以为:fast、normal、slow分别对应数值：200、400、600	callback为回叫信号、即动画执行完后所执行的事件
+			//1.隐藏展示
+			$("input").eq(0).click(function () {
+				$(".content").hide(1000,function(){
+					$(this).show(1000);
+				});
+			});
+			$("input").eq(1).click(function () {
+				$(".content").toggle(1000);
+			});
+			
+			//2.淡出淡入
+			$("input").eq(2).click(function () {
+				$(".content").fadeOut(1000,function(){
+					$(this).fadeIn(1000);
+				});
+			});
+			$("input").eq(3).click(function () {
+				$(".content").fadeToggle(1000);
+			});
+			
+			//3.滑出滑入
+			$("input").eq(4).click(function () {
+				$(".content").slideUp(1000,function(){
+					$(this).slideDown(1000);
+				});
+			});
+			$("input").eq(5).click(function () {
+				$(".content").slideToggle(1000);
+			});
+			
+		});
+	
+	</script>
+
+</body>
+</html>

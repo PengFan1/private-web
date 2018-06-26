@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>手风琴案例</title>
+
+<style type="text/css">
+
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	ul{
+		list-style: none;
+	}
+	
+	.parentWrap{
+		width:200px;
+		text-align: center;
+	}
+	.menuGroup{
+		border: 1px solid #999;
+		background-color: #e0ecff;
+	}
+	.groupTitle{
+		display: block;
+		height: 20px;
+		line-height: 20px;
+		font-size: 16px;
+		border-bottom: 1px solid #ccc;
+		cursor:pointer;
+	}
+	
+	.menuGroup > div{
+		height: 200px;
+		background-color: #fff;
+		display: none;
+	}
+
+</style>
+
+</head>
+<body>
+
+	<script type="text/javascript" src = "./js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+	
+		$(function () {
+			
+			$(".groupTitle").click(function () {
+				
+				//siblings:同一层级的兄弟元素
+//				$(this).siblings().show();
+				//next:同一层级的下一个元素
+				
+//				$(".groupTitle").next().slideUp(200);
+//				$(this).next().slideDown(200);
+			
+				//parent:上一级元素
+				$(this).next().slideDown(200).parent().siblings().children("div").slideUp(200);
+			});
+			
+		});
+	
+	</script>
+
+	<ul class = "parentWrap">
+		<li class = "menuGroup">
+			<span class = "groupTitle">title_1</span>
+			<div>div_1</div>
+		</li>
+		<li class = "menuGroup">
+			<span class = "groupTitle">title_2</span>
+			<div>div_2</div>
+		</li>
+		<li class = "menuGroup">
+			<span class = "groupTitle">title_3</span>
+			<div>div_3</div>
+		</li>
+		<li class = "menuGroup">
+			<span class = "groupTitle">title_4</span>
+			<div>div_4</div>
+		</li>
+	</ul>
+
+</body>
+</html>
